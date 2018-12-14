@@ -1,0 +1,37 @@
+// Brand Colors
+$brand-default: 						#ffb3d1;
+$brand-primary: 						#88C7EA;
+$brand-inverse: 						#8E7054;
+$brand-info: 							#FBFE67;
+
+// Font Family
+$font-family-base: 						'Open Sans Condensed', sans-serif;
+$font-family-light:                     false;//"Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-semibold:                  false;//"Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-bold:                      false;//"Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// Font Weights
+$font-weight-light:                     100;
+$font-weight-normal:                    normal;         
+$font-weight-semibold:                  500;
+$font-weight-bold:                      bold; 
+
+$font-weight-headers:                   $font-weight-normal;
+
+// Font Header Size
+$font-size-h1: 							31px;
+$font-size-h2: 							26px;
+$font-size-h3: 							20px;
+$font-size-h4: 							16px;
+$font-size-h5:                          14px;
+$font-size-h6:                          11px;
+
+//== Gray Shades
+$gray-darker:                           #222;
+$gray-dark:                             #333;
+$gray:                                  #555;
+$gray-light:                            #999;
+$gray-primary:                          #DDD;
+$gray-lighter:                          #eee;
+
+$white:									#FFFFFF;
