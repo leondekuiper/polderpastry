@@ -11,7 +11,7 @@ $content = '<a href="newedititem.php" class=message-small>New item</a></br>'
         . $itemcontroller->CreateOverview()
         . '</br>';
 
-include 'template.php';
+include 'template_admin.php';
 
  
          

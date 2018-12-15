@@ -6,7 +6,7 @@ $itemController = new ItemController();
 $page = 'New/Edit Item';
 $title = 'New/Edit Item';
 $content = "
-    <a href='itemoverview.php' class=message-small>back to Overview</a></br>
+    <a href='itemoverview.php' class=message-small>back to Overview</a>
     </br>
     <form class= newedit-form action = '' method='post'>
     <fieldset >
@@ -47,4 +47,4 @@ if (isset($_POST["txtName"]))
     $itemController->CreateItem();
 }
 
-include 'template.php';
+include 'template_admin.php';
