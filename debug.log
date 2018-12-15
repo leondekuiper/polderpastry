@@ -1,2 +1,0 @@
-[1209/181356.809:ERROR:http_transport_win.cc(170)] WinHttpCrackUrl: The URL does not use a recognized protocol  (0x2ee6)
-[1209/181408.766:ERROR:http_transport_win.cc(170)] WinHttpCrackUrl: The URL does not use a recognized protocol  (0x2ee6)

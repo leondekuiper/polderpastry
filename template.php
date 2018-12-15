@@ -63,7 +63,7 @@
 				Bedrijfsinformatie 
 				</div>
 				<p class="footer-item">
-                                    <a href="dashboard.php">Beheer</a> <br>	
+                                    <a href="Management/dashboard.php">Beheer</a> <br>	
                                     <a href="algemenevoorwaarden.php">Algemene voorwaarden</a> <br>
                                     <a href="privacyverklaring.php">Privacy verklaring</a> <br>
                                     <a href="disclaimer.php">Disclaimer</a> <br> <br>

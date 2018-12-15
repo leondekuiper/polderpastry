@@ -1,10 +1,10 @@
 <?php
 
-require ("Controller/ItemController.php");
+require '/PolderPastry/Controller/ItemController.php';
 $itemController = new ItemController();
 
-$page = 'New/Edit Item';
-$title = 'New/Edit Item';
+$page = 'NewEdit Item';
+$title = 'NewEdit Item';
 $content = "
     <a href='itemoverview.php' class=message-small>back to Overview</a>
     </br>

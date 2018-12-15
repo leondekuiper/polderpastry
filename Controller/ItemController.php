@@ -5,7 +5,7 @@ require ("Model/ItemModel.php");
 class ItemController 
 {
     
-    function CreateOverview()
+    function CreateItemOverview()
     {
         $result = 
             "<table class ='overview-table'>"
@@ -40,9 +40,7 @@ class ItemController
         
         return $result;
     }
-    
-    
-    
+
     function CreateItemDropdown()
     {
         $itemModel = new ItemModel();

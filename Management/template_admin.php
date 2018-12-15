@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="Styles/CSS/bootstrap.css">
-    <link rel="stylesheet" href="Styles/CSS/stylesheet.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="/PolderPastry/Styles/CSS/bootstrap.css">
+    <link rel="stylesheet" href="/PolderPastry/Styles/CSS/stylesheet.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     </head>
     <body class = "bootstrap-wrapper">
         <header class ="page-head">
@@ -64,10 +64,10 @@
 				Bedrijfsinformatie 
 				</div>
 				<p class="footer-item">
-                                    <a href="home.php">Normal Website</a> <br>	
-                                    <a href="algemenevoorwaarden.php">Algemene voorwaarden</a> <br>
-                                    <a href="privacyverklaring.php">Privacy verklaring</a> <br>
-                                    <a href="disclaimer.php">Disclaimer</a> <br> <br>
+                                    <a href="/PolderPastry/home.php">Normal Website</a> <br>	
+                                    <a href="/PolderPastry/algemenevoorwaarden.php">Algemene voorwaarden</a> <br>
+                                    <a href="/PolderPastry/privacyverklaring.php">Privacy verklaring</a> <br>
+                                    <a href="/PolderPastry/disclaimer.php">Disclaimer</a> <br> <br>
                                     KvK Nummer: 72156686 <br>
                                     Rekening Nummer: NL81INGB0008775510
 				</p>
@@ -91,8 +91,8 @@
 	</div>
         </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="JS/polderpastry.js" language= "Javascript" type="text/javascript"></script>
-    <script src="JS/sessionvars.js" type="text/javascript" ></script>
-    <script src="JS/shopping-cart.js" type="text/javascript" ></script>
+    <script src="/PolderPastry/JS/polderpastry.js" language= "Javascript" type="text/javascript"></script>
+    <script src="/PolderPastry/JS/sessionvars.js" type="text/javascript" ></script>
+    <script src="/PolderPastry/JS/shopping-cart.js" type="text/javascript" ></script>
     </body>
 </html>
