@@ -72,6 +72,29 @@ class ItemController
         
     }
     
+    function GetItemById($id)
+    {
+        $itemModel = new ItemModel();
+        return $itemModel->GetItemByID($itemId);
+    }
+    
+    function GetItemByType($type)
+    {
+        $itemModel = new ItemModel();
+        return $itemModel->GetItemByType($type);        
+    }
+    
+    function GetItemTypes()
+    {
+        $itemModel = new ItemModel();
+        return $itemModel->GetItemTypes();     
+    }
+    
+    function GetImages()
+    {
+        
+    }
+    
     function CreateShoppingCart ()
     {
         $order = json_decode($_GET['o']);
