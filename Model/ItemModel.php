@@ -26,17 +26,17 @@ class ItemModel
         require 'Credentials.php';
      
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "SELECT * FROM item WHERE type = ? AND isActive = ?";
+        $query = "SELECT * FROM item WHERE type LIKE ? AND isActive LIKE ?";
         $stmt = $mysqli->prepare($query);
         $yes = "Yes";
         $stmt->bind_param("ss", $type, $yes);
         $stmt->execute();
-        $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $notused, $image);
+        $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image);
         $itemArray = array();
 
         while($stmt->fetch())
         {
-            $item = new ItemEntity($id, $name, $type, $price, $description, $image, $minimumOrder);
+            $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image);
             array_push($itemArray, $item);
         }    
         mysqli_close($mysqli);

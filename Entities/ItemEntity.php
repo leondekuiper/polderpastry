@@ -4,20 +4,22 @@ class ItemEntity
 {
     public $id;
     public $name;
-    public $type;
-    public $price;
     public $description;
-    public $image;
+    public $price;
+    public $type;
     public $minimumOrder;
+    public $isActive;
+    public $image;
     
-    function __construct($id, $name, $type, $price, $description, $image, $minimumOrder) 
+    function __construct($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image) 
     {
         $this->id = $id;
         $this->name = $name;
-        $this->type = $type;
+        $this->description = $description;        
         $this->price = $price;
-        $this->description = $description;
-        $this->image = $image;
+        $this->type = $type;
         $this->minimumOrder = $minimumOrder;
+        $this->isActive = $isActive;
+        $this->image = $image;
     }
 }

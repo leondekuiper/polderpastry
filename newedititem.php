@@ -25,13 +25,23 @@ $content = "<form class= newedit-form action = '' method='post'>
         <textarea cols='70' rows='10' class='newedit-inputfield' name ='txtDescription'></textarea><br/>
 
         <label for='image'>Image:</label>
-        <select class='newedit-inputfield' name ='dslImage'></select><br/>        
+        <select class='newedit-inputfield' name ='dslImage'>"
+        . $itemController->GetImages() . 
+        "</select><br/>        
         
         <label for='minimumorder'>Minimum Order:</label>
         <input type='text' class='newedit-inputfield' name ='txtMinimumOrder' /><br/>
         
+        <label for='isActive'>Actief:</label>
+        <input type='checkbox' class='newedit-inputfield' name='isActive'/>
+        
         <input type='submit' value='Save'>
     </fieldset>
 </form>";  
+
+if (isset($_POST["txtName"]))
+{
+    $itemController->CreateItem();
+}
 
 include 'template.php';

@@ -4,7 +4,8 @@ require ("Model/ItemModel.php");
 
 class ItemController 
 {
-    function CreateItemDropdown(){
+    function CreateItemDropdown()
+    {
         $itemModel = new ItemModel();
         $result = "<form action = '' method = 'post' width = '200px'>
                     Pastry type:
@@ -59,7 +60,17 @@ class ItemController
     
     function CreateItem()
     {
+        $name = $_POST["txtName"];
+        $description = $_POST["txtDescription"];  
+        $price = $_POST["txtPrice"];         
+        $type = $_POST["dslType"];                
+        $minimumOrder = $_POST["txtMinimumOrder"];       
+        $isactive = $_POST["isActive"];             
+        $image = $_POST["dslImage"];
 
+        $item = new ItemEntity(-1, $name, $description, $price, $type, $minimumOrder , $isactive , $image);
+        $itemModel = new ItemModel();
+        $itemModel->CreateItem($item);
     }
     
     function UpdateItem($id)
@@ -92,7 +103,24 @@ class ItemController
     
     function GetImages()
     {
+        $handle = opendir("Images");
+        while($image = readdir($handle))
+        {
+            $images[]= $image;
+        }
+        closedir($handle);
         
+        $imageArray = array();
+        foreach($images as $image)
+        {
+            if(strlen($image)>2)
+            {
+                array_push($imageArray, $image);
+            }
+        }
+        
+        $result = $this->CreateItemValues($imageArray);
+        return $result;
     }
     
     function CreateShoppingCart ()
