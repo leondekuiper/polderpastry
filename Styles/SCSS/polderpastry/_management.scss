@@ -5,10 +5,10 @@
     margin: 4px;
 }
 
-.newedit-form {
+.newedit-form 
+{
     margin-top: 20px;
     margin-bottom: 40px;
-    
     label 
     {
         float: left;
@@ -17,3 +17,24 @@
     }
 }
 
+.overview-table
+{
+    width: 700 px;
+    tr 
+    {
+        padding: 4px;
+        td 
+        {
+            padding: 4px;
+            border: 1px solid #E3E3E3;
+        }
+    }
+}
+
+.overview-link {
+    color: blue;
+}
+
+.table-header {
+    font-weight: bold;
+}

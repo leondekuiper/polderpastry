@@ -27,7 +27,7 @@ $content =
 			Bestelgegevens
 		</p>
             </div>
-            <table>
+            <table class = order-table>
 		<tr><td><label for="naam">Naam</label></td><td id = "widthfilling-20px"><input name="naam" required id="naam"/></td></tr>
 		<tr><td><label for="straat">Straat & Huisnummer</label></td><td><input name="straat" required id="straat"/></td></tr>
 		<tr><td><label for="postcode">Postcode</label></td><td><input name="postcode" required id="postcode"/></td></tr>

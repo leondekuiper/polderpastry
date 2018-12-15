@@ -5,7 +5,10 @@ $itemController = new ItemController();
 
 $page = 'New/Edit Item';
 $title = 'New/Edit Item';
-$content = "<form class= newedit-form action = '' method='post'>
+$content = "
+    <a href='itemoverview.php' class=message-small>back to Overview</a></br>
+    </br>
+    <form class= newedit-form action = '' method='post'>
     <fieldset >
         <legend>New/Edit Item</legend>
         

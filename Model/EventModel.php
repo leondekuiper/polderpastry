@@ -1,15 +1,15 @@
 <?php
 
-require ("Entities/ItemEntity.php");
+require ("Entities/EventEntity.php");
 
-class ItemModel 
+class EventModel 
 {
-    function GetItemTypes()
+    function GetEventTypes()
     {
         require 'Credentials.php';
         
         $link = mysqli_connect($host,$user,$password,$database);
-        $query = "SELECT DISTINCT type FROM item";
+        $query = "SELECT DISTINCT type FROM Event";
         $result = mysqli_query($link,$query);
         $types = array();
         
@@ -21,81 +21,81 @@ class ItemModel
         return $types;
     }
     
-    function GetItemByType($type)
+    function GetEventByType($type)
     {
         require 'Credentials.php';
      
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "SELECT * FROM item WHERE type LIKE ? AND isActive LIKE ?";
+        $query = "SELECT * FROM Event WHERE type LIKE ? AND isActive LIKE ?";
         $stmt = $mysqli->prepare($query);
         $yes = "Yes";
         $stmt->bind_param("ss", $type, $yes);
         $stmt->execute();
         $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $notused, $image);
-        $itemArray = array();
+        $EventArray = array();
 
         while($stmt->fetch())
         {
-            $item = new ItemEntity($id, $name, $type, $price, $description, $image, $minimumOrder);
-            array_push($itemArray, $item);
+            $Event = new EventEntity($id, $name, $type, $price, $description, $image, $minimumOrder);
+            array_push($EventArray, $Event);
         }    
         mysqli_close($mysqli);
-        return $itemArray;
+        return $EventArray;
     }
     
-    function GetItemByID($itemId)
+    function GetEventByID($EventId)
     {
         require 'Credentials.php';
      
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "SELECT * FROM item WHERE id = ?";
+        $query = "SELECT * FROM Event WHERE id = ?";
         $stmt = $mysqli->prepare($query);
-        $stmt->bind_param("i", $itemId);
+        $stmt->bind_param("i", $EventId);
         $stmt->execute();
         $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $notused, $image);
 
         while($stmt->fetch())
         {
-            $item = new ItemEntity($id, $name, $type, $price, $description, $image, $minimumOrder);
+            $Event = new EventEntity($id, $name, $type, $price, $description, $image, $minimumOrder);
         }    
         mysqli_close($mysqli);
-        return $item;        
+        return $Event;        
     }
     
-    function InsertItem(ItemEntity $item)
+    function InsertEvent(EventEntity $Event)
     {
         require 'Credentials.php';
         
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "INSERT INTO item (name, description, price, type, minimumOrder, isActive, image) VALUES (?,?,?,?,?,?,?)";
+        $query = "INSERT INTO Event (name, description, price, type, minimumOrder, isActive, image) VALUES (?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
-        $imageURL = "Images/". mysqli_real_escape_string($item->image);  
-        $stmt->bind_param("sssssss", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL);
+        $imageURL = "Images/". mysqli_real_escape_string($Event->image);  
+        $stmt->bind_param("sssssss", $Event->name, $Event->description, $Event->price, $Event->type, $Event->minimumOrder, $Event->isActive, $imageURL);
         $stmt->execute();
         
         mysqli_close($mysqli);
     }
     
-    function UpdateItem($id, ItemController $item)
+    function UpdateEvent($id, EventController $Event)
     {
         require 'Credentials.php';
         
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "UPDATE item SET name=? description=? price=? type? minimumOrder=? isActive=? image=? WHERE id=?";
+        $query = "UPDATE Event SET name=? description=? price=? type? minimumOrder=? isActive=? image=? WHERE id=?";
         $stmt = $mysqli->prepare($query);
-        $imageURL = "Images/". mysqli_real_escape_string($item->image);         
-        $stmt->bind_param("sssssssi", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->id);
+        $imageURL = "Images/". mysqli_real_escape_string($Event->image);         
+        $stmt->bind_param("sssssssi", $Event->name, $Event->description, $Event->price, $Event->type, $Event->minimumOrder, $Event->isActive, $imageURL, $Event->id);
         $stmt->execute();
         
         mysqli_close($mysqli);
     }
     
-    function DropItem($id)
+    function DropEvent($id)
     {
         require 'Credentials.php';
 
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "DELETE from item WHERE id = ?";
+        $query = "DELETE from Event WHERE id = ?";
         $stmt = $mysqli->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();

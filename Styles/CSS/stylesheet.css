@@ -389,9 +389,9 @@ img {
   .order > p {
     margin-top: 0px; }
 
-table {
+.order-table {
   margin: auto; }
-  table tr td {
+  .order-table tr td {
     padding-top: 3px;
     padding-bottom: 3px; }
 
@@ -434,5 +434,19 @@ form {
     float: left;
     width: 100px;
     font-weight: bold; }
+
+.overview-table {
+  width: 700 px; }
+  .overview-table tr {
+    padding: 4px; }
+    .overview-table tr td {
+      padding: 4px;
+      border: 1px solid #E3E3E3; }
+
+.overview-link {
+  color: blue; }
+
+.table-header {
+  font-weight: bold; }
 
 /*# sourceMappingURL=stylesheet.css.map */

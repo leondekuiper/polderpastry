@@ -4,6 +4,45 @@ require ("Model/ItemModel.php");
 
 class ItemController 
 {
+    
+    function CreateOverview()
+    {
+        $result = 
+            "<table class ='overview-table'>"
+            . "<tr class = 'table-header'>"
+                . "<td>Name</td>"
+                . "<td>Price</td>"
+                . "<td>Type</td>"
+                . "<td>Minimum</td>"
+                . "<td>Active</td>"
+                . "<td>ImageURL</td>"
+                . "<td></td>"
+                . "<td></td>"
+            . "</tr>";
+
+        $itemArray = $this->GetItemByType('%');
+        
+        foreach ($itemArray as $item)
+        {
+            $result = $result
+                . "<tr>"
+                    . "<td>$item->name</td>"
+                    . "<td>$item->price</td>"
+                    . "<td>$item->type</td>"
+                    . "<td>$item->minimumOrder</td>"                    
+                    . "<td>$item->isActive</td>"
+                    . "<td>$item->image</td>"
+                    . "<td><a href='' class='overview-link'>Update</a></td>"
+                    . "<td><a href='' class='overview-link'>Delete</a></td>"
+                . "</tr>";
+        };
+        $result = $result . "</table>";
+        
+        return $result;
+    }
+    
+    
+    
     function CreateItemDropdown()
     {
         $itemModel = new ItemModel();
@@ -68,7 +107,7 @@ class ItemController
         $isactive = $_POST["isActive"];             
         $image = $_POST["dslImage"];
 
-        $item = new ItemEntity(-1, $name, $description, $price, $type, $minimumOrder , $isactive , $image);
+        $item = new ItemEntity('', $name, $description, $price, $type, $minimumOrder , $isactive , $image);
         $itemModel = new ItemModel();
         $itemModel->CreateItem($item);
     }
@@ -130,7 +169,7 @@ class ItemController
         $itemArray = $itemModel->GetItemByType('%');
         $totalItemPrice = 0;
         $totalPrice = 0;
-        $result = '<table>
+        $result = '<table class = order-table>
                     <tr>
                         <th>Naam</th>
                         <th style= "text-align: center">Prijs €</th>
@@ -176,7 +215,7 @@ class ItemController
 	$woonplaats = $_POST['woonplaats'];
 	$telefoonnummer = $_POST['telefoonnummer'];
 	$mailaddress = $_POST['mailaddress'];
-	$bestelling = "<table><tr><th style='text-align:left;'>Naam:</th><th style='text-align:left;'>Prijs:</th><th style='text-align:left;'>Aantal:</th><th style='text-align:left;'>Totaal:</th></tr>";
+	$bestelling = "<table class = order-table><tr><th style='text-align:left;'>Naam:</th><th style='text-align:left;'>Prijs:</th><th style='text-align:left;'>Aantal:</th><th style='text-align:left;'>Totaal:</th></tr>";
         $opmerking = $_POST['opmerking'];
 
 	unset($_POST['naam']);
