@@ -1,6 +1,6 @@
 <?php
 
-require '/PolderPastry/Controller/ItemController.php';
+require 'Controller/ItemController.php';
 
 $itemcontroller = new ItemController();
 
@@ -12,6 +12,3 @@ $content = '<a href="newedititem.php" class=message-small>New item</a></br>'
         . '</br>';
 
 include 'template_admin.php';
-
- 
-         

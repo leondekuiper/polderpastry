@@ -1,6 +1,6 @@
 <?php
 
-require '/PolderPastry/Controller/ItemController.php';
+require 'Controller/ItemController.php';
 
 $itemcontroller = new ItemController();
 

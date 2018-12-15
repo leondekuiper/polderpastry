@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="/PolderPastry/Styles/CSS/bootstrap.css">
-    <link rel="stylesheet" href="/PolderPastry/Styles/CSS/stylesheet.css">
+    <link rel="stylesheet" href="Styles/CSS/bootstrap.css">
+    <link rel="stylesheet" href="Styles/CSS/stylesheet.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     </head>
     <body class = "bootstrap-wrapper">
@@ -17,18 +17,18 @@
 		<ul class= "main-nav">
                     <li class="left-nav">
                         <ul>
-                            <li class="nav-button <?php if ($page == "dashboard") { echo "current-nav"; } ?>" id="nav-1">
-                                    <a href="dashboard.php" id="nav-1-a"><span class="hidden">Content</span></a>
+                            <li class="nav-button <?php if ($page == "itemoverview") { echo "current-nav"; } ?>" id="nav-1">
+                                    <a href="itemoverview.php" id="nav-1-a"><span class="hidden">Content</span></a>
                             </li>
-                            <li class="nav-button <?php if ($page == "imageoverview") { echo "current-nav"; } ?>" id="nav-2">
-                                    <a href="imageoverview.php" id="nav-2-a"><span class="hidden">Images</span></a>
+                            <li class="nav-button <?php if ($page == "labeloverview") { echo "current-nav"; } ?>" id="nav-2">
+                                    <a href="labeloverview.php" id="nav-2-a"><span class="hidden">Images</span></a>
                             </li>
                         </ul>
                     </li>
                     <li class="right-nav">
                             <ul>
-                                    <li class="nav-button <?php if ($page == "useroverview") { echo "current-nav"; } ?>" id="nav-3">
-                                            <a href="useroverview.php" id="nav-3-a" class="order-url"><span class="hidden">Users</span></a>
+                                    <li class="nav-button <?php if ($page == "eventoverview") { echo "current-nav"; } ?>" id="nav-3">
+                                            <a href="eventoverview.php" id="nav-3-a" class="order-url"><span class="hidden">Users</span></a>
                                     </li>	
                                     <li class="nav-button <?php if ($page == "orderoverview") { echo "current-nav"; } ?>" id="nav-4">
                                             <a href="orderoverview.php" id="nav-4-a"><span class="hidden">Orders</span></a>
@@ -64,10 +64,10 @@
 				Bedrijfsinformatie 
 				</div>
 				<p class="footer-item">
-                                    <a href="/PolderPastry/home.php">Normal Website</a> <br>	
-                                    <a href="/PolderPastry/algemenevoorwaarden.php">Algemene voorwaarden</a> <br>
-                                    <a href="/PolderPastry/privacyverklaring.php">Privacy verklaring</a> <br>
-                                    <a href="/PolderPastry/disclaimer.php">Disclaimer</a> <br> <br>
+                                    <a href="home.php">Normal Website</a> <br>	
+                                    <a href="algemenevoorwaarden.php">Algemene voorwaarden</a> <br>
+                                    <a href="privacyverklaring.php">Privacy verklaring</a> <br>
+                                    <a href="disclaimer.php">Disclaimer</a> <br> <br>
                                     KvK Nummer: 72156686 <br>
                                     Rekening Nummer: NL81INGB0008775510
 				</p>
@@ -91,8 +91,8 @@
 	</div>
         </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/PolderPastry/JS/polderpastry.js" language= "Javascript" type="text/javascript"></script>
-    <script src="/PolderPastry/JS/sessionvars.js" type="text/javascript" ></script>
-    <script src="/PolderPastry/JS/shopping-cart.js" type="text/javascript" ></script>
+    <script src="JS/polderpastry.js" language= "Javascript" type="text/javascript"></script>
+    <script src="JS/sessionvars.js" type="text/javascript" ></script>
+    <script src="JS/shopping-cart.js" type="text/javascript" ></script>
     </body>
 </html>
