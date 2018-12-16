@@ -1,6 +1,6 @@
 <?php
 
-class EventEntity
+class LabelEntity
 {
     public $id;
     public $name;

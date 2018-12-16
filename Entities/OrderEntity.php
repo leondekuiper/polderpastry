@@ -1,6 +1,6 @@
 <?php
 
-class EventEntity
+class OrderEntity
 {
     public $id;
     public $name;

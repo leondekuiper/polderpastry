@@ -1,6 +1,6 @@
 <?php
 
-class EventEntity
+class ImageEntity
 {
     public $id;
     public $name;

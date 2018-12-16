@@ -1,23 +1,23 @@
 <?php
 
-require ("Model/EventModel.php");
+require ("Model/LabelModel.php");
 
-class EventController 
+class LabelController 
 {
-    function CreateEventTables($active)
+    function CreateLabelTables($active)
     {
-        $eventModel = new EventModel();
-        $eventArray = $eventModel->GetEventListByActive($active);
+        $LabelModel = new LabelModel();
+        $LabelArray = $LabelModel->GetLabelListByActive($active);
         $result = "";
         
-        foreach ($eventArray as $event)
+        foreach ($LabelArray as $Label)
         {
             $result = $result .
-                    "<li class='event'>
-                        <img class = 'thumbnail' runat = 'server' src ='$event->image' width='320' height='240'/>
+                    "<li class='Label'>
+                        <img class = 'thumbnail' runat = 'server' src ='$Label->image' width='320' height='240'/>
                         <span class = 'description'>
-                            <h3 class = 'title'>$event->name</h3>
-                            <p class = 'text'>$event->description</p>
+                            <h3 class = 'title'>$Label->name</h3>
+                            <p class = 'text'>$Label->description</p>
                         </span>
                     </li>";
         }

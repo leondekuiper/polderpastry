@@ -1,23 +1,23 @@
 <?php
 
-require ("Model/EventModel.php");
+require ("Model/ImageModel.php");
 
-class EventController 
+class ImageController 
 {
-    function CreateEventTables($active)
+    function CreateImageTables($active)
     {
-        $eventModel = new EventModel();
-        $eventArray = $eventModel->GetEventListByActive($active);
+        $ImageModel = new ImageModel();
+        $ImageArray = $ImageModel->GetImageListByActive($active);
         $result = "";
         
-        foreach ($eventArray as $event)
+        foreach ($ImageArray as $Image)
         {
             $result = $result .
-                    "<li class='event'>
-                        <img class = 'thumbnail' runat = 'server' src ='$event->image' width='320' height='240'/>
+                    "<li class='Image'>
+                        <img class = 'thumbnail' runat = 'server' src ='$Image->image' width='320' height='240'/>
                         <span class = 'description'>
-                            <h3 class = 'title'>$event->name</h3>
-                            <p class = 'text'>$event->description</p>
+                            <h3 class = 'title'>$Image->name</h3>
+                            <p class = 'text'>$Image->description</p>
                         </span>
                     </li>";
         }

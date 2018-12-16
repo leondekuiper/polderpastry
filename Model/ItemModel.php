@@ -26,10 +26,30 @@ class ItemModel
         require 'Credentials.php';
      
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "SELECT * FROM item WHERE type LIKE ? AND isActive LIKE ?";
+        $query = "SELECT * FROM item WHERE type LIKE ? AND isActive = ?";
         $stmt = $mysqli->prepare($query);
-        $yes = "Yes";
-        $stmt->bind_param("ss", $type, $yes);
+        $yes = "1";
+        $stmt->bind_param("si", $type, $yes);
+        $stmt->execute();
+        $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image);
+        $itemArray = array();
+
+        while($stmt->fetch())
+        {
+            $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image);
+            array_push($itemArray, $item);
+        }    
+        mysqli_close($mysqli);
+        return $itemArray;
+    }
+
+    function GetItemAll()
+    {
+        require 'Credentials.php';
+     
+        $mysqli = new mysqli($host,$user,$password,$database);
+        $query = "SELECT * FROM item";
+        $stmt = $mysqli->prepare($query);
         $stmt->execute();
         $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image);
         $itemArray = array();
@@ -56,7 +76,7 @@ class ItemModel
 
         while($stmt->fetch())
         {
-            $item = new ItemEntity($id, $name, $type, $price, $description, $image, $isActive, $minimumOrder);
+            $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image);
         }    
         mysqli_close($mysqli);
         return $item;        
@@ -76,14 +96,14 @@ class ItemModel
         mysqli_close($mysqli);
     }
     
-    function UpdateItem($id, ItemController $item)
+    function UpdateItem(ItemEntity $item)
     {
         require 'Credentials.php';
         
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "UPDATE item SET name=? description=? price=? type? minimumOrder=? isActive=? image=? WHERE id=?";
+        $query = "UPDATE item SET name=?, description=?, price=?, type=? minimumOrder=?, isActive=?, image=? WHERE id=?";
         $stmt = $mysqli->prepare($query);
-        $imageURL = "Images/". mysqli_real_escape_string($item->image);         
+        $imageURL = "Images/". mysqli_real_escape_string($mysqli, $item->image);         
         $stmt->bind_param("ssdsissi", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->id);
         $stmt->execute();
         

@@ -20,7 +20,7 @@ class ItemController
                 . "<td></td>"
             . "</tr>";
 
-        $itemArray = $this->GetItemByType('%');
+        $itemArray = $this->GetItemAll();
         
         foreach ($itemArray as $item)
         {
@@ -32,7 +32,7 @@ class ItemController
                     . "<td>$item->minimumOrder</td>"                    
                     . "<td>$item->isActive</td>"
                     . "<td>$item->image</td>"
-                    . "<td><a href='' class='overview-link'>Update</a></td>"
+                    . "<td><a href='item_newedit.php?edit=$item->id' class='overview-link'>Edit</a></td>"
                     . "<td><a href='' class='overview-link'>Delete</a></td>"
                 . "</tr>";
         };
@@ -46,21 +46,29 @@ class ItemController
         $itemModel = new ItemModel();
         $result = "<form action = '' method = 'post' width = '200px'>
                     Pastry type:
-                    <select name = 'types' >
-                    <option value = '%'>Alle</option>
-                    ".$this->CreateItemValues($itemModel->GetItemTypes()).
+                    <select name = 'types' >"
+                    . "<option selected = 'selected' value = '%'>Alle</option>"
+                    . $this->CreateItemValues($itemModel->GetItemTypes(), '').
                     "</select>
                     <input type = 'submit' value = 'Search' />
                     </form>";
         return $result;
     }
     
-    function CreateItemValues(array $valueArray)
+    function CreateItemValues(array $valueArray, $activeValue)
     {
         $result = "";
         foreach ($valueArray as $value)
         {
-            $result = $result . "<option value = '$value'>$value</option>";
+            if ($value === $activeValue)
+            {
+                $selected = "selected = 'selected'";
+            }
+            else
+            {
+                $selected = "";
+            }
+            $result = $result . "<option $selected value='$value'>$value</option>";
         }
         return $result;
     }
@@ -112,7 +120,22 @@ class ItemController
     
     function UpdateItem($id)
     {
-        
+        $name = $_POST["txtName"];
+        $description = $_POST["txtDescription"];  
+        $price = $_POST["txtPrice"];         
+        $type = $_POST["dslType"];                
+        $minimumOrder = $_POST["txtMinimumOrder"];
+        $image = $_POST["dslImage"];
+        if (isset($_POST["isActive"])) {
+            $isActive = 1;
+        }
+        else {
+            $isActive = 0;
+        }
+
+        $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder , $isActive , $image);
+        $itemModel = new ItemModel();
+        $itemModel->UpdateItem($item);
     }
     
     function DeleteItem($id)
@@ -123,7 +146,7 @@ class ItemController
     function GetItemById($id)
     {
         $itemModel = new ItemModel();
-        return $itemModel->GetItemByID($itemId);
+        return $itemModel->GetItemByID($id);
     }
     
     function GetItemByType($type)
@@ -132,13 +155,20 @@ class ItemController
         return $itemModel->GetItemByType($type);        
     }
     
+    function GetItemAll()
+    {
+        $itemModel = new ItemModel();
+        return $itemModel->GetItemAll();        
+    }    
+    
+    
     function GetItemTypes()
     {
         $itemModel = new ItemModel();
         return $itemModel->GetItemTypes();     
     }
     
-    function GetImages()
+    function GetImages($activeImage)
     {
         $handle = opendir("Images");
         while($image = readdir($handle))
@@ -155,8 +185,8 @@ class ItemController
                 array_push($imageArray, $image);
             }
         }
-        
-        $result = $this->CreateItemValues($imageArray);
+        $ImageURL = substr($activeImage, 7, 0);
+        $result = $this->CreateItemValues($imageArray, $ImageURL);
         return $result;
     }
     

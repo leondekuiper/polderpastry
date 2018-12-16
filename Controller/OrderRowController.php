@@ -1,23 +1,23 @@
 <?php
 
-require 'Model/EventModel.php';
+require 'Model/OrderRowModel.php';
 
-class EventController 
+class OrderRowController 
 {
-    function CreateEventTables($active)
+    function CreateOrderRowTables($active)
     {
-        $eventModel = new EventModel();
-        $eventArray = $eventModel->GetEventListByActive($active);
+        $OrderRowModel = new OrderRowModel();
+        $OrderRowArray = $OrderRowModel->GetOrderRowListByActive($active);
         $result = "";
         
-        foreach ($eventArray as $event)
+        foreach ($OrderRowArray as $OrderRow)
         {
             $result = $result .
-                    "<li class='event'>
-                        <img class = 'thumbnail' runat = 'server' src ='$event->image' width='320' height='240'/>
+                    "<li class='OrderRow'>
+                        <img class = 'thumbnail' runat = 'server' src ='$OrderRow->image' width='320' height='240'/>
                         <span class = 'description'>
-                            <h3 class = 'title'>$event->name</h3>
-                            <p class = 'text'>$event->description</p>
+                            <h3 class = 'title'>$OrderRow->name</h3>
+                            <p class = 'text'>$OrderRow->description</p>
                         </span>
                     </li>";
         }

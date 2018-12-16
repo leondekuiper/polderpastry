@@ -18,17 +18,17 @@
                     <li class="left-nav">
                         <ul>
                             <li class="nav-button <?php if ($page == "itemoverview") { echo "current-nav"; } ?>" id="nav-1">
-                                    <a href="itemoverview.php" id="nav-1-a"><span class="hidden">Content</span></a>
+                                    <a href="itemoverview.php" id="nav-1-a"><span class="hidden">Items</span></a>
                             </li>
                             <li class="nav-button <?php if ($page == "labeloverview") { echo "current-nav"; } ?>" id="nav-2">
-                                    <a href="labeloverview.php" id="nav-2-a"><span class="hidden">Images</span></a>
+                                    <a href="labeloverview.php" id="nav-2-a"><span class="hidden">Labels</span></a>
                             </li>
                         </ul>
                     </li>
                     <li class="right-nav">
                             <ul>
                                     <li class="nav-button <?php if ($page == "eventoverview") { echo "current-nav"; } ?>" id="nav-3">
-                                            <a href="eventoverview.php" id="nav-3-a" class="order-url"><span class="hidden">Users</span></a>
+                                            <a href="eventoverview.php" id="nav-3-a" class="order-url"><span class="hidden">Events</span></a>
                                     </li>	
                                     <li class="nav-button <?php if ($page == "orderoverview") { echo "current-nav"; } ?>" id="nav-4">
                                             <a href="orderoverview.php" id="nav-4-a"><span class="hidden">Orders</span></a>
@@ -64,7 +64,7 @@
 				Bedrijfsinformatie 
 				</div>
 				<p class="footer-item">
-                                    <a href="home.php">Normal Website</a> <br>	
+                                    <a href="home.php">Website</a> <br>	
                                     <a href="algemenevoorwaarden.php">Algemene voorwaarden</a> <br>
                                     <a href="privacyverklaring.php">Privacy verklaring</a> <br>
                                     <a href="disclaimer.php">Disclaimer</a> <br> <br>
