@@ -60,7 +60,7 @@ class ItemController
         $result = "";
         foreach ($valueArray as $value)
         {
-            if ($value === $activeValue)
+            if ($value == $activeValue)
             {
                 $selected = "selected = 'selected'";
             }
@@ -185,7 +185,7 @@ class ItemController
                 array_push($imageArray, $image);
             }
         }
-        $ImageURL = substr($activeImage, 7, 0);
+        $ImageURL = substr($activeImage, 7);
         $result = $this->CreateItemValues($imageArray, $ImageURL);
         return $result;
     }
