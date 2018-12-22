@@ -13,6 +13,11 @@ $content = '<a href="item_newedit.php" class=message-small style="padding-right:
         . $itemcontroller->CreateItemOverview()
         . '</br>';
 
+if(isset($_GET['delete']))
+{
+    $itemcontroller->DeleteItem($_GET['delete']);
+}
+
 include 'template_admin.php';
 
  

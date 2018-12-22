@@ -94,5 +94,6 @@
     <script src="JS/polderpastry.js" language= "Javascript" type="text/javascript"></script>
     <script src="JS/sessionvars.js" type="text/javascript" ></script>
     <script src="JS/shopping-cart.js" type="text/javascript" ></script>
+    <script src="JS/admin.js" type="text/javascript" ></script>    
     </body>
 </html>
