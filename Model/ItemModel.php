@@ -90,7 +90,7 @@ class ItemModel
         $query = "INSERT INTO item(name, description, price, type, minimumOrder, isActive, image) VALUES (?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
         $imageURL = "Images/". mysqli_real_escape_string($mysqli, $item->image);  
-        $stmt->bind_param("ssdsiss", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL);
+        $stmt->bind_param("ssdsiis", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL);
         $stmt->execute();
 
         mysqli_close($mysqli);
@@ -104,7 +104,7 @@ class ItemModel
         $query = "UPDATE item SET name=?, description=?, price=?, type=? minimumOrder=?, isActive=?, image=? WHERE id=?";
         $stmt = $mysqli->prepare($query);
         $imageURL = "Images/". mysqli_real_escape_string($mysqli, $item->image);         
-        $stmt->bind_param("ssdsissi", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->id);
+        $stmt->bind_param("ssdsiisi", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->id);
         $stmt->execute();
         
         mysqli_close($mysqli);

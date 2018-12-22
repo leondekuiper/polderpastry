@@ -65,7 +65,7 @@ $content = "
         <input value = '$minimumOrder' type='text' class='newedit-inputfield' name ='txtMinimumOrder' /><br/>
         
         <label for='isActive'>Actief:</label>
-        <input type='checkbox' class='newedit-inputfield' value='1' name='isActive' $isActive/>
+        <input type='checkbox' class='newedit-inputfield' value='1' name='isActive' $isActive/>     
         
         <input type='submit' value='Save'>
     </fieldset>

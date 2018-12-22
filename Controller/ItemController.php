@@ -109,11 +109,15 @@ class ItemController
         $description = $_POST["txtDescription"];  
         $price = $_POST["txtPrice"];         
         $type = $_POST["dslType"];                
-        $minimumOrder = $_POST["txtMinimumOrder"];       
-        $isactive = $_POST["isActive"];             
+        $minimumOrder = $_POST["txtMinimumOrder"];              
         $image = $_POST["dslImage"];
-
-        $item = new ItemEntity('', $name, $description, $price, $type, $minimumOrder , $isactive , $image);
+        if (isset($_POST["isActive"])) {
+            $isActive = 1;
+        }
+        else {
+            $isActive = 0;
+        }
+        $item = new ItemEntity('', $name, $description, $price, $type, $minimumOrder , $isActive , $image);
         $itemModel = new ItemModel();
         $itemModel->CreateItem($item);
     }
