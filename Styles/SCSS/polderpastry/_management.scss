@@ -14,6 +14,7 @@
         float: left;
         width: 100px;
         font-weight:bold;
+        padding-top: 7px;
     }
 }
 
@@ -26,7 +27,6 @@
         td 
         {
             padding: 4px;
-            border: 1px solid #E3E3E3;
         }
     }
 }
@@ -37,4 +37,23 @@
 
 .table-header {
     font-weight: bold;
+}
+
+.button-admin {
+    margin-right: 20px;
+    border: 1px solid white;
+    padding: 5px;
+    background-color: #F5F5F5;
+    &:hover {
+        border: 1px solid lightgrey;
+    }
+}
+
+.button-save {
+    float: right;
+    font-size: 17px;
+}
+
+.checkbox {
+    margin-top: 12px;
 }

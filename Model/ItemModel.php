@@ -51,12 +51,12 @@ class ItemModel
         $query = "SELECT * FROM item";
         $stmt = $mysqli->prepare($query);
         $stmt->execute();
-        $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image);
+        $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image, $position);
         $itemArray = array();
 
         while($stmt->fetch())
         {
-            $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image);
+            $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image, $position);
             array_push($itemArray, $item);
         }    
         mysqli_close($mysqli);
@@ -72,11 +72,11 @@ class ItemModel
         $stmt = $mysqli->prepare($query);
         $stmt->bind_param("i", $itemId);
         $stmt->execute();
-        $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image);
+        $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image, $position);
 
         while($stmt->fetch())
         {
-            $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image);
+            $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image, $position);
         }    
         mysqli_close($mysqli);
         return $item;        
@@ -87,10 +87,10 @@ class ItemModel
         require 'Credentials.php';
         
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "INSERT INTO item(name, description, price, type, minimumOrder, isActive, image) VALUES (?,?,?,?,?,?,?)";
+        $query = "INSERT INTO item(name, description, price, type, minimumOrder, isActive, image, position) VALUES (?,?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
         $imageURL = "Images/". mysqli_real_escape_string($mysqli, $item->image);  
-        $stmt->bind_param("ssdsiis", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL);
+        $stmt->bind_param("ssdsiis", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->position);
         $stmt->execute();
 
         mysqli_close($mysqli);
@@ -101,10 +101,10 @@ class ItemModel
         require 'Credentials.php';
         
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "UPDATE item SET name=?, description=?, price=?, type=?, minimumOrder=?, isActive=?, image=? WHERE id=?";
+        $query = "UPDATE item SET name=?, description=?, price=?, type=?, minimumOrder=?, isActive=?, image=?, position=? WHERE id=?";
         $stmt = $mysqli->prepare($query);
         $imageURL = "Images/". mysqli_real_escape_string($mysqli, $item->image);         
-        $stmt->bind_param("ssdsiisi", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->id);
+        $stmt->bind_param("ssdsiisi", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->position, $item->id);
         $stmt->execute();
         
         mysqli_close($mysqli);

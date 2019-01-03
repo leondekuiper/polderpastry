@@ -111,13 +111,14 @@ class ItemController
         $type = $_POST["dslType"];                
         $minimumOrder = $_POST["txtMinimumOrder"];              
         $image = $_POST["dslImage"];
+        $position = $_POST["txtPosition"];
         if (isset($_POST["isActive"])) {
             $isActive = 1;
         }
         else {
             $isActive = 0;
         }
-        $item = new ItemEntity('', $name, $description, $price, $type, $minimumOrder , $isActive , $image);
+        $item = new ItemEntity('', $name, $description, $price, $type, $minimumOrder , $isActive , $image, $position);
         $itemModel = new ItemModel();
         $itemModel->CreateItem($item);
     }
@@ -130,6 +131,7 @@ class ItemController
         $type = $_POST["dslType"];                
         $minimumOrder = $_POST["txtMinimumOrder"];
         $image = $_POST["dslImage"];
+        $position = $_POST["position"];
         if (isset($_POST["isActive"])) {
             $isActive = 1;
         }
@@ -137,7 +139,7 @@ class ItemController
             $isActive = 0;
         }
 
-        $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder , $isActive , $image);
+        $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder , $isActive , $image, $position);
         $itemModel = new ItemModel();
         $itemModel->UpdateItem($item);
     }

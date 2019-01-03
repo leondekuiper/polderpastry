@@ -1,15 +1,16 @@
-img {
-	max-width: 100%;
-	height: auto;
+img 
+{
+    max-width: 100%;
+    height: auto;
 }
 
-.aboutpicture {
-	
-	display: flex;
-
-	img {
-		max-width: 240px;
-		margin: auto;
-                margin-bottom: 40px;
-	}
+.aboutpicture 
+{
+    display: flex;
+    img 
+    {
+        max-width: 240px;
+        margin: auto;
+        margin-bottom: 40px;
+    }
 }

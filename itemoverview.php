@@ -6,8 +6,7 @@ $itemcontroller = new ItemController();
 
 $page = 'itemoverview'; 
 $title = 'itemoverview';
-$content = '<a href="item_newedit.php" class=message-small style="padding-right: 20px;" >New item</a>'
-        . '<a href="imageupload.php" class=message-small>Upload Image</a>'
+$content = '<a href="item_newedit.php" class="message-small button-admin">New item</a>'
         . '</br>'
         . '</br>'
         . $itemcontroller->CreateItemOverview()

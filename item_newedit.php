@@ -15,6 +15,7 @@ if(isset($_GET["edit"]))
     $description = $item->description;
     $image = $item->image;
     $minimumOrder = $item->minimumOrder;
+    $position = $item->position;
     if ($item->isActive === 1)
     {
         $isActive = "checked = 'checked'";
@@ -32,14 +33,15 @@ else {
     $description = '';
     $image = '';
     $minimumOrder = '';
+    $position = '';
     $isActive = "checked = 'checked'";
 }
 
 $content = "
-    <a href='itemoverview.php' class=message-small>back to Overview</a>
+    <a href='itemoverview.php' class='message-small button-admin'>back to Overview</a>
     </br>
-    <form class= newedit-form action = '' method='post'>
-    <fieldset >
+    <form class= 'newedit-form' action = '' method='post'>
+    <fieldset>
         <legend>New/Edit Item</legend>
         
         <label for='name'>Name:</label>
@@ -63,11 +65,14 @@ $content = "
         
         <label for='minimumorder'>Minimum Order:</label>
         <input value = '$minimumOrder' type='text' class='newedit-inputfield' name ='txtMinimumOrder' /><br/>
-        
-        <label for='isActive'>Actief:</label>
-        <input type='checkbox' class='newedit-inputfield' value='1' name='isActive' $isActive/>     
-        
-        <input type='submit' value='Save'>
+            
+        <label for='position'>Position:</label>
+        <input value = '$position' type='text' class='newedit-inputfield' name ='txtPosition' /><br/>       
+                
+        <label for='isActive'>Active:</label>
+        <input type='checkbox' class='newedit-inputfield checkbox' value='1' name='isActive' $isActive/><br/>     
+
+        <input type='submit' value='Save' class='button-save'>
     </fieldset>
 </form>";  
 

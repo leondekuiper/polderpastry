@@ -10,8 +10,9 @@ class ItemEntity
     public $minimumOrder;
     public $isActive;
     public $image;
+    public $position;
     
-    function __construct($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image) 
+    function __construct($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image, $position) 
     {
         $this->id = $id;
         $this->name = $name;
@@ -21,5 +22,6 @@ class ItemEntity
         $this->minimumOrder = $minimumOrder;
         $this->isActive = $isActive;
         $this->image = $image;
+        $this->position = $position;
     }
 }
