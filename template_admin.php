@@ -12,6 +12,9 @@
     </head>
     <body class = "bootstrap-wrapper">
         <header class ="page-head-admin">
+            <div class="nav-admin-logo">
+                <img src="styles/CSS/logo/logo.jpg" alt="PolderPastry Logo">
+            </div>
             <ul class= "main-nav-admin">
                 <li class="nav-button-admin <?php if ($page == "itemoverview") { echo "current-nav"; } ?>">
                     <a href="itemoverview.php"><span>Items</span></a>

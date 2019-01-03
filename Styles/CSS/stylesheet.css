@@ -482,4 +482,21 @@ form {
 .checkbox {
   margin-top: 12px; }
 
+.main-nav-admin {
+  display: inline-block;
+  position: relative;
+  top: -20px; }
+
+.nav-admin-logo {
+  display: inline-block;
+  padding-top: 10px;
+  padding-left: 20px; }
+  .nav-admin-logo img {
+    height: 60px;
+    width: 60px; }
+
+.thumbnail-admin {
+  float: right;
+  margin: 40px; }
+
 /*# sourceMappingURL=stylesheet.css.map */

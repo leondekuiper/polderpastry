@@ -44,6 +44,8 @@ $content = "
     <fieldset>
         <legend>New/Edit Item</legend>
         
+        <img class='thumbnail-admin' runat='server' src ='$image' id='image-thumbnail' width='320' height='240'/>
+
         <label for='name'>Name:</label>
         <input value = '$name' type='text' class='newedit-inputfield' name ='txtName' /><br/>
         
@@ -59,7 +61,7 @@ $content = "
         <textarea cols='70' rows='10' class='newedit-inputfield' name ='txtDescription'>$description</textarea><br/>
 
         <label for='image'>Image:</label>
-        <select class='newedit-inputfield' name ='dslImage'>"
+        <select class='newedit-inputfield' name ='dslImage' onChange='ChangeItemImage(this.value)'>"
         . $itemController->GetImages($image) . 
         "</select><br/>        
         

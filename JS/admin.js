@@ -6,4 +6,7 @@ function ShowConfirmation(id)
     
 }
 
-
+function ChangeItemImage(newimg)
+{
+    document.getElementById('image-thumbnail').src = "Images/" + newimg;
+}

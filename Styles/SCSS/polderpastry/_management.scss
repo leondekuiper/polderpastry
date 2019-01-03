@@ -31,29 +31,60 @@
     }
 }
 
-.overview-link {
+.overview-link 
+{
     color: blue;
 }
 
-.table-header {
+.table-header 
+{
     font-weight: bold;
 }
 
-.button-admin {
+.button-admin 
+{
     margin-right: 20px;
     border: 1px solid white;
     padding: 5px;
     background-color: #F5F5F5;
-    &:hover {
+    &:hover 
+    {
         border: 1px solid lightgrey;
     }
 }
 
-.button-save {
+.button-save 
+{
     float: right;
     font-size: 17px;
 }
 
-.checkbox {
+.checkbox 
+{
     margin-top: 12px;
+}
+
+.main-nav-admin 
+{
+    display: inline-block;
+    position: relative;
+    top: -20px;
+}
+
+.nav-admin-logo 
+{
+    display: inline-block;
+    padding-top: 10px;
+    padding-left: 20px;
+    img 
+    {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+.thumbnail-admin 
+{
+    float: right;
+    margin: 40px;
 }

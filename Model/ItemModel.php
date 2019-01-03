@@ -31,12 +31,12 @@ class ItemModel
         $yes = "1";
         $stmt->bind_param("si", $type, $yes);
         $stmt->execute();
-        $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image);
+        $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image, $position);
         $itemArray = array();
 
         while($stmt->fetch())
         {
-            $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image);
+            $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image, $position);
             array_push($itemArray, $item);
         }    
         mysqli_close($mysqli);
@@ -79,7 +79,7 @@ class ItemModel
             $item = new ItemEntity($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image, $position);
         }    
         mysqli_close($mysqli);
-        return $item;        
+        return $item;
     }
     
     function CreateItem(ItemEntity $item)
