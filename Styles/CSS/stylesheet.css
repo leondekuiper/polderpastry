@@ -60,6 +60,24 @@
   line-height: 1.5rem;
   color: #fff; }
 
+.nav-button-admin {
+  display: inline-block;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 10px; }
+  .nav-button-admin :hover {
+    border-bottom: 2px dotted #ffb3d1 !important; }
+  .nav-button-admin a {
+    text-decoration: none;
+    color: #88C7EA;
+    border-bottom: 2px solid transparent; }
+
+.page-head-admin {
+  position: relative;
+  left: 0.5%;
+  padding-bottom: 30px; }
+
 @media (max-width: 769px) {
   .main-nav ul {
     display: block; }
