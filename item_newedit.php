@@ -62,6 +62,7 @@ $content = "
 
         <label for='image'>Image:</label>
         <select class='newedit-inputfield' name ='dslImage' onChange='ChangeItemImage(this.value)'>"
+        . "<option value=''> </option>"
         . $itemController->GetImages($image) . 
         "</select><br/>        
         

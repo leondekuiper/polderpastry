@@ -9,14 +9,15 @@ class ItemModel
         require 'Credentials.php';
         
         $link = mysqli_connect($host,$user,$password,$database);
-        $query = "SELECT DISTINCT type FROM item";
+        $query = "SELECT COLUMN_TYPE FROM information_schema.COLUMNS
+                 WHERE TABLE_NAME = 'item' AND COLUMN_NAME = 'type'";
         $result = mysqli_query($link,$query);
-        $types = array();
-        
+        $types = array();        
         while($row = mysqli_fetch_array($result))
         {
-            array_push($types, $row[0]);
-        }
+            $types = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
+        };
+
         mysqli_close($link);
         return $types;
     }
@@ -26,7 +27,7 @@ class ItemModel
         require 'Credentials.php';
      
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "SELECT * FROM item WHERE type LIKE ? AND isActive = ?";
+        $query = "SELECT * FROM item WHERE type LIKE ? AND isActive = ? ORDER BY position ASC";
         $stmt = $mysqli->prepare($query);
         $yes = "1";
         $stmt->bind_param("si", $type, $yes);
@@ -48,7 +49,7 @@ class ItemModel
         require 'Credentials.php';
      
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "SELECT * FROM item";
+        $query = "SELECT * FROM item ORDER BY position ASC";
         $stmt = $mysqli->prepare($query);
         $stmt->execute();
         $stmt->bind_result($id, $name, $description, $price, $type, $minimumOrder, $isActive, $image, $position);
