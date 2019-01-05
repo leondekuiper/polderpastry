@@ -13,11 +13,11 @@ class ItemModel
                  WHERE TABLE_NAME = 'item' AND COLUMN_NAME = 'type'";
         $result = mysqli_query($link,$query);
         $types = array();        
+        
         while($row = mysqli_fetch_array($result))
         {
             $types = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
         };
-
         mysqli_close($link);
         return $types;
     }
@@ -91,7 +91,7 @@ class ItemModel
         $query = "INSERT INTO item(name, description, price, type, minimumOrder, isActive, image, position) VALUES (?,?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
         $imageURL = "Images/". mysqli_real_escape_string($mysqli, $item->image);  
-        $stmt->bind_param("ssdsiis", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->position);
+        $stmt->bind_param("ssdsiiss", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->position);
         $stmt->execute();
 
         mysqli_close($mysqli);
@@ -105,7 +105,7 @@ class ItemModel
         $query = "UPDATE item SET name=?, description=?, price=?, type=?, minimumOrder=?, isActive=?, image=?, position=? WHERE id=?";
         $stmt = $mysqli->prepare($query);
         $imageURL = "Images/". mysqli_real_escape_string($mysqli, $item->image);         
-        $stmt->bind_param("ssdsiisi", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->position, $item->id);
+        $stmt->bind_param("ssdsiissi", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->position, $item->id);
         $stmt->execute();
         
         mysqli_close($mysqli);

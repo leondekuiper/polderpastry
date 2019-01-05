@@ -10,6 +10,7 @@ class ItemController
         $result = 
             "<table class ='overview-table'>"
             . "<tr class = 'table-header'>"
+                . "<td>Position</td>"
                 . "<td>Name</td>"
                 . "<td>Price</td>"
                 . "<td>Type</td>"
@@ -26,6 +27,7 @@ class ItemController
         {
             $result = $result
                 . "<tr>"
+                    . "<td>$item->position</td>"
                     . "<td>$item->name</td>"
                     . "<td>$item->price</td>"
                     . "<td>$item->type</td>"
@@ -131,7 +133,7 @@ class ItemController
         $type = $_POST["dslType"];                
         $minimumOrder = $_POST["txtMinimumOrder"];
         $image = $_POST["dslImage"];
-        $position = $_POST["position"];
+        $position = $_POST["txtPosition"];
         if (isset($_POST["isActive"])) {
             $isActive = 1;
         }
