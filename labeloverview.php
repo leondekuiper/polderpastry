@@ -1,14 +1,20 @@
 <?php
 
-require 'Controller/ItemController.php';
+require 'Controller/LabelController.php';
 
-$itemcontroller = new ItemController();
+$labelcontroller = new LabelController();
 
-$page = 'itemoverview'; 
-$title = 'itemoverview';
-$content = '<a href="newedititem.php" class=message-small>New item</a></br>'
+$page = 'labeloverview'; 
+$title = 'labeloverview';
+$content = '<a href="label_newedit.php" class="message-small button-admin">New label</a>'
         . '</br>'
-        . $itemcontroller->CreateOverview()
+        . '</br>'
+        . $labelcontroller->CreateLabelOverview()
         . '</br>';
+
+if(isset($_GET['delete']))
+{
+    $labelcontroller->DeleteLabel($_GET['delete']);
+}
 
 include 'template_admin.php';

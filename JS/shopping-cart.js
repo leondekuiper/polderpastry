@@ -114,7 +114,7 @@ function updateTotal()
     });
     var deliveryFee = getDeliveryFee(totalAmount);
     totalAmount += deliveryFee;
-    var VAT = Math.round(totalAmount /106 *6 *100)/100;
+    var VAT = Math.round(totalAmount /109 *9 *100)/100;
     var subtotalPrice = totalAmount - VAT;
     $('#deliveryFee').html(euroFormatter.format(deliveryFee)); 
     $('#totalPrice').html(euroFormatter.format(totalAmount)); 

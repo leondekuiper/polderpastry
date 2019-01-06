@@ -1,11 +1,14 @@
 <?php 
 
+require 'Controller/EmailController.php';
 require 'Controller/ItemController.php';
+
+$emailController = new EmailController();
 $itemController = new ItemController();
 
 $page = 'bestelling-gedaan';
 $title = 'bestelling-gedaan';
-$content = $itemController->SendEmailWithItems() .
+$content = $EmailController->SendEmailConfirmation($itemController->GetItemAll()) .
 '<div class="page-title">
     <p>
             Bedankt voor je bestelling!

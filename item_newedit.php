@@ -1,7 +1,12 @@
 <?php
 
 require 'Controller/ItemController.php';
+require 'Controller/ImageController.php';
+require 'Controller/GenericController.php';
+
 $itemController = new ItemController();
+$imageController = new ImageController();
+$genericController = new GenericController();
 
 $page = 'NewEdit Item';
 $title = 'NewEdit Item';
@@ -52,7 +57,7 @@ $content = "
             <label for='type'>Type:</label>
             <select class='newedit-inputfield' name ='dslType'>"
             . "<option value=''> </option>"
-            . $itemController->CreateItemValues($itemController->GetItemTypes(), $type) ."</select>
+            . $genericController->CreateDropdown($itemController->GetItemTypes(), $type) ."</select>
             <br/>
             <label for='price'>Price:</label>
             <input value = '$price' type='text' class='newedit-inputfield' name ='txtPrice' />
@@ -63,7 +68,7 @@ $content = "
             <label for='image'>Image:</label>
             <select class='newedit-inputfield' name ='dslImage' onChange='ChangeItemImage(this.value)'>"
             . "<option value=''> </option>"
-            . $itemController->GetImages($image) . "</select>
+            . $genericController->CreateDropdown($imageController->GetImages(), substr($image, 7)) . "</select>
             <br/>        
             <label for='minimumorder'>Minimum Order:</label>
             <input value = '$minimumOrder' type='text' class='newedit-inputfield' name ='txtMinimumOrder' />
@@ -76,8 +81,7 @@ $content = "
             <br/>     
             <input type='submit' value='Save' class='button-save'>
         </fieldset>
-    </form>";  
-
+    </form>";
 
 if (isset($_GET["edit"]))
 {

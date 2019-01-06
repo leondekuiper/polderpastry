@@ -1,26 +1,35 @@
 <?php
 
-require ("Model/ImageModel.php");
-
-class ImageController 
+class ImageController
 {
-    function CreateImageTables($active)
+    function GetImages()
     {
-        $ImageModel = new ImageModel();
-        $ImageArray = $ImageModel->GetImageListByActive($active);
-        $result = "";
-        
-        foreach ($ImageArray as $Image)
+        $handle = opendir("Images");
+        while($image = readdir($handle))
         {
-            $result = $result .
-                    "<li class='Image'>
-                        <img class = 'thumbnail' runat = 'server' src ='$Image->image' width='320' height='240'/>
-                        <span class = 'description'>
-                            <h3 class = 'title'>$Image->name</h3>
-                            <p class = 'text'>$Image->description</p>
-                        </span>
-                    </li>";
+            $images[]= $image;
+        }
+        closedir($handle);
+        
+        $result = array();
+        foreach($images as $image)
+        {
+            if(strlen($image)>2)
+            {
+                array_push($result, $image);
+            }
         }
         return $result;
     }
+    
+    function CreateImageOverview()
+    {
+        
+    }
+    
+    function DeleteImage()
+    {
+        
+    }
 }
+

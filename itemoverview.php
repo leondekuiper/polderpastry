@@ -9,7 +9,7 @@ $title = 'itemoverview';
 $content = '<a href="item_newedit.php" class="message-small button-admin">New item</a>'
         . '</br>'
         . '</br>'
-        . $itemcontroller->CreateItemOverview()
+        . $itemcontroller->CreateItemOverviewAdmin()
         . '</br>';
 
 if(isset($_GET['delete']))

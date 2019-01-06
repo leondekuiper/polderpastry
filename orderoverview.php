@@ -8,7 +8,7 @@ $page = 'itemoverview';
 $title = 'itemoverview';
 $content = '<a href="newedititem.php" class=message-small>New item</a></br>'
         . '</br>'
-        . $itemcontroller->CreateItemOverview()
+        . $itemcontroller->CreateOrderOverviewAdmin()
         . '</br>';
 
 include 'template_admin.php';
