@@ -37,10 +37,10 @@ class TypeModel
 
         while($stmt->fetch())
         {
-            $item = new TypeEntity($id, $name);
+            $type = new TypeEntity($id, $name);
         }    
         mysqli_close($mysqli);
-        return $item;
+        return $type;
     }
     
     function CreateType(TypeEntity $type)

@@ -37,10 +37,10 @@ class LabelModel
 
         while($stmt->fetch())
         {
-            $item = new LabelEntity($id, $name);
+            $label = new LabelEntity($id, $name);
         }    
         mysqli_close($mysqli);
-        return $item;
+        return $label;
     }
     
     function CreateLabel(LabelEntity $label)

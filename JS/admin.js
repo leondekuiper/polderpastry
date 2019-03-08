@@ -5,7 +5,7 @@ function ShowConfirmation(string,id)
     if(c) window.location = string + ".php?delete=" + id;
 }
 
-function ChangeItemImage(newimg)
+function ChangeImage(newimg)
 {
     document.getElementById('image-thumbnail').src = "Images/" + newimg;
 }

@@ -66,7 +66,7 @@ $content = "
             <textarea cols='70' rows='10' class='newedit-inputfield' name ='txtDescription'>$description</textarea>
             <br/>
             <label for='image'>Image:</label>
-            <select class='newedit-inputfield' name ='dslImage' onChange='ChangeItemImage(this.value)'>"
+            <select class='newedit-inputfield' name ='dslImage' onChange='ChangeImage(this.value)'>"
             . "<option value=''> </option>"
             . $genericController->CreateDropdown($imageController->GetImages(), substr($image, 7)) . "</select>
             <br/>        

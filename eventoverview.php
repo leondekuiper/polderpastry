@@ -1,20 +1,20 @@
 <?php
 
-require 'Controller/LabelController.php';
+require 'Controller/EventController.php';
 
-$labelController = new LabelController();
+$eventController = new EventController();
 
 if(isset($_GET['delete']))
 {
-    $labelController->DeleteLabel($_GET['delete']);
+    $eventController->DeleteEvent($_GET['delete']);
 }
 
-$page = 'labeloverview'; 
-$title = 'labeloverview';
-$content = '<a href="label_newedit.php" class="message-small button-admin">New label</a>'
+$page = 'eventoverview'; 
+$title = 'eventoverview';
+$content = '<a href="event_newedit.php" class="message-small button-admin">New Event</a>'
         . '</br>'
         . '</br>'
-        . $labelController->CreateLabelOverviewAdmin()
+        . $eventController->CreateEventOverviewAdmin()
         . '</br>';
 
 include 'template_admin.php';

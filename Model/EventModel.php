@@ -1,80 +1,82 @@
 <?php
 
-require ("Entities/LabelEntity.php");
+require ("Entities/EventEntity.php");
 
-class LabelModel
+class EventModel
 {
-    function GetlabelAll()
+    function GetEventAll()
     {
         require 'Credentials.php';
      
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "SELECT * FROM label ORDER BY name ASC";
+        $query = "SELECT * FROM event ORDER BY name ASC";
         $stmt = $mysqli->prepare($query);
         $stmt->execute();
-        $stmt->bind_result($id, $name);
-        $labelArray = array();
+        $stmt->bind_result($id, $name, $description, $image, $isActive);
+        $eventArray = array();
 
         while($stmt->fetch())
         {
-            $label = new LabelEntity($id, $name);
-            array_push($labelArray, $label);
+            $event = new EventEntity($id, $name, $description, $image, $isActive);
+            array_push($eventArray, $event);
         }    
         mysqli_close($mysqli);
-        return $labelArray;
+        return $eventArray;
     }
     
-    function GetLabelByID($labelId)
+    function GetEventByID($eventId)
     {
         require 'Credentials.php';
      
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "SELECT * FROM label WHERE id = ?";
+        $query = "SELECT * FROM event WHERE id = ?";
         $stmt = $mysqli->prepare($query);
-        $stmt->bind_param("i", $labelId);
+        $stmt->bind_param("i", $eventId);
         $stmt->execute();
-        $stmt->bind_result($id, $name);
+        $stmt->bind_result($id, $name, $description, $image, $isActive);
 
         while($stmt->fetch())
         {
-            $item = new LabelEntity($id, $name);
+            $event = new EventEntity($id, $name, $description, $image, $isActive);
         }    
         mysqli_close($mysqli);
-        return $item;
+        return $event;
     }
     
-    function CreateLabel(LabelEntity $label)
+    function CreateEvent(EventEntity $event)
     {
         require 'Credentials.php';
         
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "INSERT INTO label (name) VALUES (?)";
+        $query = "INSERT INTO event(name, description, imageURL, isActive) VALUES (?,?,?,?)";
         $stmt = $mysqli->prepare($query);
-        $stmt->bind_param("s", $label->name);
+        $imageURL = "Images/". mysqli_real_escape_string($mysqli, $event->image);
+        $stmt->bind_param("sssi", $event->name, $event->description, $imageURL, $event->isActive);
         $stmt->execute();
 
         mysqli_close($mysqli);
     }
     
-    function UpdateLabel(LabelEntity $label)
+    function UpdateEvent(EventEntity $event)
     {
         require 'Credentials.php';
         
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "UPDATE label SET name=? WHERE id=?";
+        $query = "UPDATE event SET name=?, description=?, imageURL=?, isActive=? WHERE id=?";
         $stmt = $mysqli->prepare($query);
-        $stmt->bind_param("si", $label->name, $label->id);
+        $imageURL = "Images/". mysqli_real_escape_string($mysqli, $event->image);
+        $stmt->bind_param("sssii", $event->name, $event->description, $imageURL, $event->isActive, $event->id);
         $stmt->execute();
         
         mysqli_close($mysqli);
     }
     
-    function DeleteLabel($id)
+    function DeleteEvent($id)
     {
         require 'Credentials.php';
 
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "DELETE FROM label WHERE id =?";
+        $query = "DELETE FROM event WHERE id =?";
         $stmt = $mysqli->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
