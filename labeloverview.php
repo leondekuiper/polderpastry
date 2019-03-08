@@ -2,19 +2,19 @@
 
 require 'Controller/LabelController.php';
 
-$labelcontroller = new LabelController();
+$labelController = new LabelController();
+
+if(isset($_GET['delete']))
+{
+    $labelController->DeleteLabel($_GET['delete']);
+}
 
 $page = 'labeloverview'; 
 $title = 'labeloverview';
 $content = '<a href="label_newedit.php" class="message-small button-admin">New label</a>'
         . '</br>'
         . '</br>'
-        . $labelcontroller->CreateLabelOverviewAdmin()
+        . $labelController->CreateLabelOverviewAdmin()
         . '</br>';
-
-if(isset($_GET['delete']))
-{
-    $labelcontroller->DeleteLabel($_GET['delete']);
-}
 
 include 'template_admin.php';

@@ -1,6 +1,6 @@
 <?php
 
-class LabelEntity
+class TypeEntity
 {
     public $id;
     public $name;

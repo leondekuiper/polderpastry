@@ -1,9 +1,8 @@
-function ShowConfirmation(id)
+function ShowConfirmation(string,id)
 {
-    var c = confirm("Are you sure you wish to delete this?")
+    var c = confirm("Are you sure you wish to delete this?");
     
-    if(c) window.location = "itemoverview.php?delete=" + id;
-    
+    if(c) window.location = string + ".php?delete=" + id;
 }
 
 function ChangeItemImage(newimg)

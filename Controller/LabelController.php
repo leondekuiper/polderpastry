@@ -16,14 +16,15 @@ class LabelController
 
         $labelArray = $this->GetLabelAll();
         $LabelModel = new LabelModel();
+        $URL = "labeloverview";
         
         foreach ($labelArray as $label)
         {
             $result = $result
                 . "<tr>"
                     . "<td>$label->name</td>"
-                    . "<td><a href='item_newedit.php?edit=$label->id' class='overview-link'>Edit</a></td>"
-                    . "<td><a href='#' onclick='ShowConfirmation($label->id)' class='overview-link'>Delete</a></td>"
+                    . "<td><a href='label_newedit.php?edit=$label->id' class='overview-link'>Edit</a></td>"
+                    . "<td><a href='#' onclick='ShowConfirmation(\"$URL\",$label->id)' class='overview-link'>Delete</a></td>"
                 . "</tr>";
         };
         $result = $result . "</table>";
@@ -49,7 +50,7 @@ class LabelController
         
         $label = new LabelEntity('', $name);
         $labelModel = new LabelModel();
-        $labelModel->CreateLabel($item);
+        $labelModel->CreateLabel($label);
     }
     
     function UpdateLabel($id)
@@ -58,7 +59,7 @@ class LabelController
 
         $label = new LabelEntity($id, $name);
         $labelModel = new LabelModel();
-        $labelModel->UpdateLabel($item);
+        $labelModel->UpdateLabel($label);
     }
     
     function DeleteLabel($id)

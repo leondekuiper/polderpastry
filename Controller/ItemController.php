@@ -4,7 +4,6 @@ require ('Model/ItemModel.php');
 
 class ItemController 
 {
-    
     function CreateItemOverviewAdmin()
     {
         $result = 
@@ -22,6 +21,7 @@ class ItemController
             . "</tr>";
 
         $itemArray = $this->GetItemAll();
+        $URL = "itemoverview";
         
         foreach ($itemArray as $item)
         {
@@ -35,7 +35,7 @@ class ItemController
                     . "<td>$item->isActive</td>"
                     . "<td>$item->image</td>"
                     . "<td><a href='item_newedit.php?edit=$item->id' class='overview-link'>Edit</a></td>"
-                    . "<td><a href='#' onclick='ShowConfirmation($item->id)' class='overview-link'>Delete</a></td>"
+                    . "<td><a href='#' onclick='ShowConfirmation(\"$URL\", $item->id)' class='overview-link'>Delete</a></td>"
                 . "</tr>";
         };
         $result = $result . "</table>";

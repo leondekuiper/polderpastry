@@ -3,12 +3,15 @@
 require 'Controller/LabelController.php';
 require 'Controller/GenericController.php';
 
+$labelController = new LabelController();
+$genericController = new GenericController();
+
 $page = 'NewEdit Label';
 $title = 'NewEdit Label';
 
 if(isset($_GET["edit"]))
 {
-    $label = $LabelController->GetLabelById($_GET["edit"]);
+    $label = $labelController->GetLabelById($_GET["edit"]);
     $name = $label->name;
 }
 

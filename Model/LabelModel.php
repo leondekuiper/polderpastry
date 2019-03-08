@@ -48,24 +48,22 @@ class LabelModel
         require 'Credentials.php';
         
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "INSERT INTO item(name, description, price, type, minimumOrder, isActive, image, position) VALUES (?,?,?,?,?,?,?,?)";
+        $query = "INSERT INTO label (name) VALUES (?)";
         $stmt = $mysqli->prepare($query);
-        $imageURL = "Images/". mysqli_real_escape_string($mysqli, $item->image);  
-        $stmt->bind_param("ssdsiiss", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->position);
+        $stmt->bind_param("s", $label->name);
         $stmt->execute();
 
         mysqli_close($mysqli);
     }
     
-    function UpdateItem(LabelEntity $label)
+    function UpdateLabel(LabelEntity $label)
     {
         require 'Credentials.php';
         
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "UPDATE item SET name=?, description=?, price=?, type=?, minimumOrder=?, isActive=?, image=?, position=? WHERE id=?";
+        $query = "UPDATE label SET name=? WHERE id=?";
         $stmt = $mysqli->prepare($query);
-        $imageURL = "Images/". mysqli_real_escape_string($mysqli, $item->image);         
-        $stmt->bind_param("ssdsiissi", $item->name, $item->description, $item->price, $item->type, $item->minimumOrder, $item->isActive, $imageURL, $item->position, $item->id);
+        $stmt->bind_param("si", $label->name, $label->id);
         $stmt->execute();
         
         mysqli_close($mysqli);
@@ -76,7 +74,7 @@ class LabelModel
         require 'Credentials.php';
 
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "DELETE FROM item WHERE id = ?";
+        $query = "DELETE FROM label WHERE id =?";
         $stmt = $mysqli->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();

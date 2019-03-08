@@ -1,80 +1,80 @@
 <?php
 
-require ("Entities/LabelEntity.php");
+require ("Entities/TypeEntity.php");
 
-class LabelModel
+class TypeModel
 {
-    function GetlabelAll()
+    function GetTypeAll()
     {
         require 'Credentials.php';
-     
+    
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "SELECT * FROM label ORDER BY name ASC";
+        $query = "SELECT * FROM type ORDER BY name ASC";
         $stmt = $mysqli->prepare($query);
         $stmt->execute();
         $stmt->bind_result($id, $name);
-        $labelArray = array();
+        $typeArray = array();
 
         while($stmt->fetch())
         {
-            $label = new LabelEntity($id, $name);
-            array_push($labelArray, $label);
+            $type = new TypeEntity($id, $name);
+            array_push($typeArray, $type);
         }    
         mysqli_close($mysqli);
-        return $labelArray;
+        return $typeArray;
     }
-    
-    function GetLabelByID($labelId)
+
+    function GetTypeByID($typeId)
     {
         require 'Credentials.php';
      
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "SELECT * FROM label WHERE id = ?";
+        $query = "SELECT * FROM type WHERE id = ?";
         $stmt = $mysqli->prepare($query);
-        $stmt->bind_param("i", $labelId);
+        $stmt->bind_param("i", $typeId);
         $stmt->execute();
         $stmt->bind_result($id, $name);
 
         while($stmt->fetch())
         {
-            $item = new LabelEntity($id, $name);
+            $item = new TypeEntity($id, $name);
         }    
         mysqli_close($mysqli);
         return $item;
     }
     
-    function CreateLabel(LabelEntity $label)
+    function CreateType(TypeEntity $type)
     {
         require 'Credentials.php';
         
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "INSERT INTO label (name) VALUES (?)";
+        $query = "INSERT INTO type (name) VALUES (?)";
         $stmt = $mysqli->prepare($query);
-        $stmt->bind_param("s", $label->name);
+        $stmt->bind_param("s", $type->name);
         $stmt->execute();
 
         mysqli_close($mysqli);
     }
     
-    function UpdateLabel(LabelEntity $label)
+    function UpdateType(TypeEntity $type)
     {
         require 'Credentials.php';
         
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "UPDATE label SET name=? WHERE id=?";
+        $query = "UPDATE type SET name=? WHERE id=?";
         $stmt = $mysqli->prepare($query);
-        $stmt->bind_param("si", $label->name, $label->id);
+        $stmt->bind_param("si", $type->name, $type->id);
         $stmt->execute();
         
         mysqli_close($mysqli);
     }
     
-    function DeleteLabel($id)
+    function DeleteType($id)
     {
         require 'Credentials.php';
 
         $mysqli = new mysqli($host,$user,$password,$database);
-        $query = "DELETE FROM label WHERE id =?";
+        $query = "DELETE FROM type WHERE id =?";
         $stmt = $mysqli->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -82,4 +82,3 @@ class LabelModel
         mysqli_close($mysqli);
     }
 }
-

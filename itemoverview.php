@@ -4,6 +4,11 @@ require 'Controller/ItemController.php';
 
 $itemcontroller = new ItemController();
 
+if(isset($_GET['delete']))
+{
+    $itemcontroller->DeleteItem($_GET['delete']);
+}
+
 $page = 'itemoverview'; 
 $title = 'itemoverview';
 $content = '<a href="item_newedit.php" class="message-small button-admin">New item</a>'
@@ -11,11 +16,6 @@ $content = '<a href="item_newedit.php" class="message-small button-admin">New it
         . '</br>'
         . $itemcontroller->CreateItemOverviewAdmin()
         . '</br>';
-
-if(isset($_GET['delete']))
-{
-    $itemcontroller->DeleteItem($_GET['delete']);
-}
 
 include 'template_admin.php';
 

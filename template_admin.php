@@ -22,6 +22,9 @@
                 <li class="nav-button-admin <?php if ($page == "labeloverview") { echo "current-nav"; } ?>">
                     <a href="labeloverview.php"><span>Labels</span></a>
                 </li>
+                <li class="nav-button-admin <?php if ($page == "typeoverview") { echo "current-nav"; } ?>">
+                    <a href="typeoverview.php"><span>Types</span></a>
+                </li>
                 <li class="nav-button-admin <?php if ($page == "imageoverview") { echo "current-nav"; } ?>">
                     <a href="imageoverview.php"><span>Images</span></a>
                 </li>                            
@@ -32,13 +35,13 @@
                     <a href="orderoverview.php"><span>Orders</span></a>
                 </li>
                 <li class="nav-button-admin <?php if ($page == "invoiceoverview") { echo "current-nav"; } ?>">
-                    <a href="orderoverview.php"><span>Invoices</span></a>
+                    <a href="invoiceoverview.php"><span>Invoices</span></a>
                 </li>
                 <li class="nav-button-admin <?php if ($page == "emailoverview") { echo "current-nav"; } ?>">
-                    <a href="orderoverview.php"><span>Emails</span></a>
+                    <a href="emailoverview.php"><span>Emails</span></a>
                 </li>
                 <li class="nav-button-admin <?php if ($page == "purchaseoverview") { echo "current-nav"; } ?>">
-                    <a href="orderoverview.php"><span>Purchases</span></a>
+                    <a href="purchaseoverview.php"><span>Purchases</span></a>
                 </li>
             </ul>
         </header>
