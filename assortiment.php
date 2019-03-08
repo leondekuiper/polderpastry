@@ -1,7 +1,9 @@
 <?php 
 
 require 'Controller/ItemController.php';
+require 'Controller/GenericController.php';
 
+$genericController = new GenericController();
 $itemController = new ItemController();
 
 if(isset($_POST['types']))

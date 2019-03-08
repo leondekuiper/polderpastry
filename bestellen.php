@@ -16,7 +16,7 @@ $content =
             </div>
             <div id="receiptContainer">
 		'
-		. $itemController->CreateShoppingCart() .
+		. $itemController->CreateItemOverviewShoppingCart() .
 		'
             <p> Let op! Wij bezorgen alleen in de regio Amstelland, Abcoude, Amstelveen & Amsterdam-Zuid! Indien u voor een andere regio patiserie wil bestellen en wil laten bezorgen neem dan eerst even contact op. Anders zullen wij uw bestelling annuleren en bij een reeds geschiede betaling uw geld terug storten. Vanaf &euro; 25 is de bezorging gratis!</p>
             </div>

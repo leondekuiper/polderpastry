@@ -9,7 +9,7 @@ $title = 'labeloverview';
 $content = '<a href="label_newedit.php" class="message-small button-admin">New label</a>'
         . '</br>'
         . '</br>'
-        . $labelcontroller->CreateLabelOverview()
+        . $labelcontroller->CreateLabelOverviewAdmin()
         . '</br>';
 
 if(isset($_GET['delete']))
