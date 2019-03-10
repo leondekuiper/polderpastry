@@ -3,17 +3,23 @@
 class OrderEntity
 {
     public $id;
-    public $name;
-    public $description;
-    public $image;
-    public $isActive;
+    public $orderDate;
+    public $deliveryDate;
+    public $comment;
+    public $isDelivery;
+    public $personID;
+    public $totalNoVAT;
+    public $orderTotal;
     
-    function __construct($id, $name, $description, $image, $isActive) 
+    function __construct($id, $orderDate, $deliveryDate, $comment, $isDelivery, $personID, $totalNoVAT, $orderTotal) 
     {
         $this->id = $id;
-        $this->name = $name;
-        $this->description = $description;
-        $this->image = $image;
-        $this->isActive = $isActive;
+        $this->orderDate = $orderDate;
+        $this->deliveryDate = $deliveryDate;
+        $this->comment = $comment;
+        $this->isDelivery = $isDelivery;
+        $this->personID = $personID;
+        $this->totalNoVAT = $totalNoVAT;
+        $this->orderTotal = $orderTotal;
     }
 }
