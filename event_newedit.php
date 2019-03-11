@@ -41,7 +41,6 @@ $content = "
         <fieldset>
             <legend>New/Edit Event</legend>
             <img class='thumbnail-admin' runat='server' src ='$image' id='image-thumbnail' width='320' height='240'/>
-                
             <label for='name'>Name:</label>
             <input value = '$name' type='text' class='newedit-inputfield' name ='txtName' />
             <br/>

@@ -1,14 +1,14 @@
 <?php
 
-require 'Controller/ItemController.php';
+require 'Controller/OrderController.php';
 
-$itemcontroller = new ItemController();
+$itemController = new OrderController();
 
 $page = 'itemoverview'; 
 $title = 'itemoverview';
 $content = '<a href="newedititem.php" class=message-small>New item</a></br>'
         . '</br>'
-        . $itemcontroller->CreateOrderOverviewAdmin()
+        . $orderController->CreateOrderOverviewAdmin()
         . '</br>';
 
 include 'template_admin.php';

@@ -11,7 +11,7 @@ $content =
         <div class = "order-left">
             <div class="page-title">
 		<p>
-			Winkelwagen
+                    Winkelwagen
 		</p>
             </div>
             <div id="receiptContainer">
@@ -24,7 +24,7 @@ $content =
         <div class = order-right>
             <div class="page-title">
 		<p>
-			Bestelgegevens
+                    Bestelgegevens
 		</p>
             </div>
             <table class = order-table>

@@ -53,22 +53,22 @@ class ItemController
         {
             $price = number_format((float)$item->price, 2, ',', '');
             $result = $result .
-                    "<li class='item'>
-                        <img class = 'thumbnail' runat = 'server' src ='$item->image' width='320' height='240'/>
-                        <span class = 'description'>
-                            <h3 class = 'title'>$item->name</h3>
-                            <h3 class = 'price' id='prijs_$item->id'>€ $price</h3>
-                            <p class = 'text'>$item->description</p>
-                            <ul class= 'tags'>
-                            Label placeholder
-                            </ul>
-                            <p class = 'order'>
-                                <input id='input_$item->id' type = 'number' name = 'item-amount' value = '$item->minimumOrder' class = 'item-amount' min = '$item->minimumOrder'>
-                                <button data-id ='$item->id' class = 'add-to-cart'>Voeg Toe</button>
-                            </p>
-                        </span>
-                        <div id = 'aantal_$item->id' class = 'shop-amount item-shop-amount'/>
-                    </li>";
+                "<li class='item'>
+                    <img class = 'thumbnail' runat = 'server' src ='$item->image' width='320' height='240'/>
+                    <span class = 'description'>
+                        <h3 class = 'title'>$item->name</h3>
+                        <h3 class = 'price' id='prijs_$item->id'>€ $price</h3>
+                        <p class = 'text'>$item->description</p>
+                        <ul class= 'tags'>
+                        Label placeholder
+                        </ul>
+                        <p class = 'order'>
+                            <input id='input_$item->id' type = 'number' name = 'item-amount' value = '$item->minimumOrder' class = 'item-amount' min = '$item->minimumOrder'>
+                            <button data-id ='$item->id' class = 'add-to-cart'>Voeg Toe</button>
+                        </p>
+                    </span>
+                    <div id = 'aantal_$item->id' class = 'shop-amount item-shop-amount'/>
+                </li>";
         }
         return $result;
     }

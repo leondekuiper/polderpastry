@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <meta charset="utf-8">
-    <title> Polder Pastry - <?= ucWords($page); ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="Styles/CSS/bootstrap.css">
-    <link rel="stylesheet" href="Styles/CSS/stylesheet.css">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+        <meta charset="utf-8">
+        <title> Polder Pastry - <?= ucWords($page); ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="Styles/CSS/bootstrap.css">
+        <link rel="stylesheet" href="Styles/CSS/stylesheet.css">
+        <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
     </head>
     <body class = "bootstrap-wrapper">
         <header class ="page-head-admin">
@@ -25,23 +25,17 @@
                 <li class="nav-button-admin <?php if ($page == "typeoverview") { echo "current-nav"; } ?>">
                     <a href="typeoverview.php"><span>Types</span></a>
                 </li>
-                <li class="nav-button-admin <?php if ($page == "imageoverview") { echo "current-nav"; } ?>">
-                    <a href="imageoverview.php"><span>Images</span></a>
-                </li>                            
                 <li class="nav-button-admin <?php if ($page == "eventoverview") { echo "current-nav"; } ?>">
                     <a href="eventoverview.php"><span>Events</span></a>
-                </li>	
+                </li>
                 <li class="nav-button-admin <?php if ($page == "orderoverview") { echo "current-nav"; } ?>">
                     <a href="orderoverview.php"><span>Orders</span></a>
                 </li>
-                <li class="nav-button-admin <?php if ($page == "invoiceoverview") { echo "current-nav"; } ?>">
-                    <a href="invoiceoverview.php"><span>Invoices</span></a>
+                <li class="nav-button-admin <?php if ($page == "imageoverview") { echo "current-nav"; } ?>">
+                    <a href="imageoverview.php"><span>Images</span></a>
                 </li>
                 <li class="nav-button-admin <?php if ($page == "emailoverview") { echo "current-nav"; } ?>">
                     <a href="emailoverview.php"><span>Emails</span></a>
-                </li>
-                <li class="nav-button-admin <?php if ($page == "purchaseoverview") { echo "current-nav"; } ?>">
-                    <a href="purchaseoverview.php"><span>Purchases</span></a>
                 </li>
             </ul>
         </header>

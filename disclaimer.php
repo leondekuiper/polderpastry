@@ -5,7 +5,7 @@ $title = 'disclaimer';
 $content =
 '<div class="page-title">
     <p>
-            Disclaimer
+        Disclaimer
     </p>
 </div>
 <div class="main-content">
