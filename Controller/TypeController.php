@@ -1,6 +1,6 @@
 <?php
 
-require ("Model/TypeModel.php");
+require_once ("Model/TypeModel.php");
 
 class TypeController 
 {

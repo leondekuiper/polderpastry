@@ -1,13 +1,12 @@
 <?php
 
-require ("Entities/ItemEntity.php");
+require_once ("Entities/ItemEntity.php");
+require_once ("Credentials.php");
 
 class ItemModel 
 {
     function GetItemTypes()
     {
-        require 'Credentials.php';
-        
         $link = mysqli_connect($host,$user,$password,$database);
         $query = "SELECT COLUMN_TYPE FROM information_schema.COLUMNS
                  WHERE TABLE_NAME = 'item' AND COLUMN_NAME = 'type'";
@@ -24,8 +23,6 @@ class ItemModel
     
     function GetItemByType($type)
     {
-        require 'Credentials.php';
-     
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "SELECT * FROM item WHERE type LIKE ? AND isActive = ? ORDER BY position ASC";
         $stmt = $mysqli->prepare($query);
@@ -46,8 +43,6 @@ class ItemModel
 
     function GetItemAll()
     {
-        require 'Credentials.php';
-     
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "SELECT * FROM item ORDER BY position ASC";
         $stmt = $mysqli->prepare($query);
@@ -66,8 +61,6 @@ class ItemModel
     
     function GetItemByID($itemId)
     {
-        require 'Credentials.php';
-     
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "SELECT * FROM item WHERE id = ?";
         $stmt = $mysqli->prepare($query);
@@ -85,8 +78,6 @@ class ItemModel
     
     function CreateItem(ItemEntity $item)
     {
-        require 'Credentials.php';
-        
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "INSERT INTO item(name, description, price, type, minimumOrder, isActive, image, position) VALUES (?,?,?,?,?,?,?,?)";
         $stmt = $mysqli->prepare($query);
@@ -99,8 +90,6 @@ class ItemModel
     
     function UpdateItem(ItemEntity $item)
     {
-        require 'Credentials.php';
-        
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "UPDATE item SET name=?, description=?, price=?, type=?, minimumOrder=?, isActive=?, image=?, position=? WHERE id=?";
         $stmt = $mysqli->prepare($query);
@@ -113,8 +102,6 @@ class ItemModel
     
     function DeleteItem($id)
     {
-        require 'Credentials.php';
-
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "DELETE FROM item WHERE id = ?";
         $stmt = $mysqli->prepare($query);

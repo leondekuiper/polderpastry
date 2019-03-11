@@ -1,13 +1,12 @@
 <?php
 
-require ("Entities/EventEntity.php");
+require_once ("Entities/EventEntity.php");
+require_once ("Credentials.php");
 
 class EventModel
 {
     function GetEventAll()
     {
-        require 'Credentials.php';
-     
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "SELECT * FROM event ORDER BY name ASC";
         $stmt = $mysqli->prepare($query);
@@ -26,8 +25,6 @@ class EventModel
     
     function GetEventByID($eventId)
     {
-        require 'Credentials.php';
-     
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "SELECT * FROM event WHERE id = ?";
         $stmt = $mysqli->prepare($query);
@@ -45,8 +42,6 @@ class EventModel
     
     function CreateEvent(EventEntity $event)
     {
-        require 'Credentials.php';
-        
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "INSERT INTO event(name, description, imageURL, isActive) VALUES (?,?,?,?)";
         $stmt = $mysqli->prepare($query);
@@ -59,8 +54,6 @@ class EventModel
     
     function UpdateEvent(EventEntity $event)
     {
-        require 'Credentials.php';
-        
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "UPDATE event SET name=?, description=?, imageURL=?, isActive=? WHERE id=?";
         $stmt = $mysqli->prepare($query);
@@ -73,8 +66,6 @@ class EventModel
     
     function DeleteEvent($id)
     {
-        require 'Credentials.php';
-
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "DELETE FROM event WHERE id =?";
         $stmt = $mysqli->prepare($query);

@@ -1,6 +1,6 @@
 <?php
 
-require ('Model/ItemModel.php');
+require_once ('Model/ItemModel.php');
 
 class ItemController 
 {
@@ -180,5 +180,5 @@ class ItemController
     {
         $itemModel = new ItemModel();
         return $itemModel->GetItemTypes();     
-    }
+    }    
 }

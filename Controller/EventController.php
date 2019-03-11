@@ -1,11 +1,14 @@
 <?php
 
-require ("Model/EventModel.php");
+require_once ("Model/EventModel.php");
 
 class EventController 
 {
     function CreateEventOverviewAdmin()
     {
+        $EventModel = new EventModel();
+        $eventArray = $this->GetEventAll();
+        $URL = "eventoverview";
         $result = 
             "<table class ='overview-table'>"
             . "<tr class = 'table-header'>"
@@ -16,10 +19,6 @@ class EventController
                 . "<td></td>"
                 . "<td></td>"
             . "</tr>";
-
-        $eventArray = $this->GetEventAll();
-        $EventModel = new EventModel();
-        $URL = "eventoverview";
         
         foreach ($eventArray as $event)
         {

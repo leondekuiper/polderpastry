@@ -1,13 +1,12 @@
 <?php
 
-require ("Entities/TypeEntity.php");
+require_once ("Entities/TypeEntity.php");
+require_once ("Credentials.php");
 
 class TypeModel
 {
     function GetTypeAll()
     {
-        require 'Credentials.php';
-    
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "SELECT * FROM type ORDER BY name ASC";
         $stmt = $mysqli->prepare($query);
@@ -26,8 +25,6 @@ class TypeModel
 
     function GetTypeByID($typeId)
     {
-        require 'Credentials.php';
-     
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "SELECT * FROM type WHERE id = ?";
         $stmt = $mysqli->prepare($query);
@@ -45,8 +42,6 @@ class TypeModel
     
     function CreateType(TypeEntity $type)
     {
-        require 'Credentials.php';
-        
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "INSERT INTO type (name) VALUES (?)";
         $stmt = $mysqli->prepare($query);
@@ -58,8 +53,6 @@ class TypeModel
     
     function UpdateType(TypeEntity $type)
     {
-        require 'Credentials.php';
-        
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "UPDATE type SET name=? WHERE id=?";
         $stmt = $mysqli->prepare($query);
@@ -71,8 +64,6 @@ class TypeModel
     
     function DeleteType($id)
     {
-        require 'Credentials.php';
-
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "DELETE FROM type WHERE id =?";
         $stmt = $mysqli->prepare($query);

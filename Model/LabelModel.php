@@ -1,13 +1,12 @@
 <?php
 
-require ("Entities/LabelEntity.php");
+require_once ("Entities/LabelEntity.php");
+require_once ("Credentials.php");
 
 class LabelModel
 {
     function GetlabelAll()
     {
-        require 'Credentials.php';
-     
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "SELECT * FROM label ORDER BY name ASC";
         $stmt = $mysqli->prepare($query);
@@ -26,8 +25,6 @@ class LabelModel
     
     function GetLabelByID($labelId)
     {
-        require 'Credentials.php';
-     
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "SELECT * FROM label WHERE id = ?";
         $stmt = $mysqli->prepare($query);
@@ -45,8 +42,6 @@ class LabelModel
     
     function CreateLabel(LabelEntity $label)
     {
-        require 'Credentials.php';
-        
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "INSERT INTO label (name) VALUES (?)";
         $stmt = $mysqli->prepare($query);
@@ -58,8 +53,6 @@ class LabelModel
     
     function UpdateLabel(LabelEntity $label)
     {
-        require 'Credentials.php';
-        
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "UPDATE label SET name=? WHERE id=?";
         $stmt = $mysqli->prepare($query);
@@ -71,8 +64,6 @@ class LabelModel
     
     function DeleteLabel($id)
     {
-        require 'Credentials.php';
-
         $mysqli = new mysqli($host,$user,$password,$database);
         $query = "DELETE FROM label WHERE id =?";
         $stmt = $mysqli->prepare($query);

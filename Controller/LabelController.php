@@ -1,6 +1,6 @@
 <?php
 
-require ("Model/LabelModel.php");
+require_once ("Model/LabelModel.php");
 
 class LabelController 
 {

@@ -3,18 +3,18 @@
 require_once 'Controller/EmailController.php';
 require_once 'Controller/ItemController.php';
 require_once 'Controller/OrderController.php';
+require_once 'Controller/PersonController.php';
+require_once 'Controller/OrderLineController.php';
 
 $emailController = new EmailController();
 $itemController = new ItemController();
 $orderController = new OrderController();
+$orderLineController = new orderLineController();
+$personController = new PersonController();
 
-$delivery = 0;
-if($_POST['bezorgen'])
-{
-    $delivery = 1;
-};
-$person = $orderController->CreatePerson($_POST['naam'],$_POST['straat'],$_POST['postcode'],$_POST['woonplaats'],$_POST['telefoonnummer'],$_POST['mailaddress']);
-$order = $orderController->CreateOrder($person->id, date('Y/m/d'), $_POST['bezorgdag'], $_POST['opmerking'], $delivery);
+$person = $personController->CreatePerson();
+$order = $orderController->CreateOrder($person->id);
+$itemArray = $itemController->GetItemAll();
 
 unset($_POST['naam']);
 unset($_POST['bezorgdag']);
@@ -29,18 +29,18 @@ unset($_POST['ophalen']);
 unset($_POST['bezorgen']);
 
 $orderLineArray = array();
-	foreach ($itemArray as $item) 
+    foreach ($itemArray as $item) 
+    {
+        $amountstring = 'aantal_' . $item->id;
+        if (isset($_POST[$amountstring]) && $_POST[$amountstring] > 0) 
         {
-            $amountstring = 'aantal_' . $item->id;
-            if (isset($_POST[$amountstring]) && $_POST[$amountstring] > 0) 
-            {
-                $orderline = $orderController->CreateOrderLine($item, $_POST[$amountstring], $orderID);
-                array_push($orderLineArray, $orderLine);
-            }
-	}
+            $orderline = $orderLineController->CreateOrderLine($item, $_POST[$amountstring], $order->id);
+            array_push($orderLineArray, $orderLine);
+        }
+    }
+        
 $orderController->UpdateOrder($order, $person->id, $totalNoVAT, $orderTotal);
-
-$emailController->SendEmailConfirmation($person, $order, $orderLineArray);
+$emailController->SendConfirmationEmail($emailController->CreateConfirmationEmail($person, $order, $orderController->CreateOrderTable($orderLineArray, $itemArray)));
 
 $page = 'bestelling-gedaan';
 $title = 'bestelling-gedaan';
